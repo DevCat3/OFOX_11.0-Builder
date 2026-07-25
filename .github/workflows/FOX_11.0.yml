@@ -1,4 +1,4 @@
-name: OrangeFox - Build
+name: OrangeFox 11.0
 
 on:
   workflow_dispatch:
@@ -13,7 +13,7 @@ on:
       DEVICE_TREE:
         description: 'Custom Recovery Tree'
         required: true
-        default: 'https://github.com/DevCat3/android_device_samsung_gta4l'
+        default: 'https://github.com/DevCat3/android_device_samsung_gta4lve'
       DEVICE_TREE_BRANCH:
         description: 'Custom Recovery Tree Branch'
         required: true
@@ -21,11 +21,11 @@ on:
       DEVICE_PATH:
         description: 'Specify your device path.'
         required: true
-        default: 'device/samsung/gta4l'
+        default: 'device/samsung/gta4lve'
       DEVICE_NAME:
         description: 'Specify your Device Codename.'
         required: true
-        default: 'gta4l'
+        default: 'gta4lve'
       BUILD_TARGET:
         description: 'Specify your Build Target'
         required: true
@@ -92,8 +92,8 @@ jobs:
       run: |
         mkdir -p ${GITHUB_WORKSPACE}/OrangeFox
         cd ${GITHUB_WORKSPACE}/OrangeFox
-        git config --global user.name "Samuel Kendall"
-        git config --global user.email "kinguser981@gmail.com"
+        git config --global user.name "DevCat3"
+        git config --global user.email "omarelbakery2008@gmail.com"
         git clone https://github.com/Teguhpunya/orangefox_sync.git
         cd orangefox_sync
         ./orangefox_sync.sh --branch ${{ github.event.inputs.MANIFEST_BRANCH }} --path ${GITHUB_WORKSPACE}/OrangeFox/fox_${{ github.event.inputs.MANIFEST_BRANCH }}
